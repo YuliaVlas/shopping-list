@@ -1,3 +1,23 @@
+const sendInput = document.querySelector('#input');
+const sendItems = document.querySelector('#items');
+
+sendInput.addEventListener('keydown', function(event) {
+    if (event.key == 'Enter') {
+        const itemText = sendInput.value;
+    
+        const newItem = document.createElement('div');
+          newItem.classList.add('message');
+          newItem.textContent = itemText;
+
+        if (itemText != '') {
+          sendItems.append(newItem); 
+        }
+        newItem.addEventListener('click', function() {
+        newItem.classList.toggle('done');
+        });
+        sendInput.value = '';
+    }
+});
 /* Новые элементы должны добавляться в список по нажатию на Enter */
 
 /* Пустые элементы не должны добавляться */
